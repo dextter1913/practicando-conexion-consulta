@@ -37,7 +37,7 @@
         <label for="contraseña2" class="form-group">Confirmar contraseña:</label><br>
         <input type="password" name="contraseña2" id="contraseña2" class="form-control" placeholder="Contraseña"><br><br>
         <input type="submit" value="Ingresar" name="registrar" class="btn btn-primary"><br><br>
-        </form>
+        </form><br>
 
         <?php 
         
@@ -71,8 +71,30 @@
         <h1>Busqueda</h1>
         <form action="index.php" method="post">
         <label for="id"class="form-group">Ingrese id a buscar</label>
-        <input type="search" class="form-control" name="id" id="id">
+        <input type="search" class="form-control" name="id" id="id" placeholder="ingrese ID"><br><br>
+        <input type="submit" value="Buscar" name="btnbuscar" class="btn btn-success"><br><br><br>
         </form>
+        
+        <?php 
+            if (isset($_POST['btnbuscar'])) {
+                include("./clases/conexion-open.php");
+                $resultados = mysqli_query($conexion, ("SELECT * FROM $tbempleados"));
+                while ($consulta = mysqli_fetch_array($resultados)) {
+                    echo "
+                    <table width=\"100%\">
+                    <tr>
+                        <td>Documento</td><td>Nombre</td><td>Apellido</td><td>Apellido2</td><td>Telefono</td><td>Usuario</td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                    </tr>
+                    </table>
+                    ";
+                    echo $consulta['nombre'];
+                }
+                include("./clases/conexion-close.php");
+            }
+        ?>
         </div>
 </div>
 </body>
