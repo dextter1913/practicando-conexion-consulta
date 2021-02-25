@@ -16,8 +16,8 @@
 </head>
 <body>
 <div class="row">
-  <div class="col-md-4"></div>
-  <div class="col-md-3">
+<div class="col-md-1"></div>
+  <div class="col-md-5">
         <h1>Practicando consultas</h1>
         <form action="index.php" method="post" class="form-inline">
         <label for="id" class="form-group">Doc:</label><br>
@@ -67,7 +67,7 @@
         ?>
 
         </div>
-        <div class="col-md-4">
+        <div class="col-md-5">
         <h1>Busqueda</h1>
         <form action="index.php" method="post">
         <label for="id"class="form-group">Ingrese id a buscar</label>
