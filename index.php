@@ -17,7 +17,7 @@
 <body>
 <div class="row">
   <div class="col-md-4"></div>
-  <div class="col-md-4">
+  <div class="col-md-3">
         <h1>Practicando consultas</h1>
         <form action="index.php" method="post" class="form-inline">
         <label for="id" class="form-group">Doc:</label><br>
@@ -67,7 +67,7 @@
         ?>
 
         </div>
-        <div class="col-md-3">
+        <div class="col-md-4">
         <h1>Busqueda</h1>
         <form action="index.php" method="post">
         <label for="id"class="form-group">Ingrese id a buscar</label>
@@ -78,15 +78,20 @@
         <?php 
             if (isset($_POST['btnbuscar'])) {
                 include("./clases/conexion-open.php");
-                $resultados = mysqli_query($conexion, ("SELECT * FROM $tbempleados"));
+                $resultados = mysqli_query($conexion, ("SELECT * FROM $tbempleados WHERE id=$_id"));
                 while ($consulta = mysqli_fetch_array($resultados)) {
                     echo "
-                    <table width=\"100%\">
+                    <table width=\"100%\" class=\"table\">
                     <tr>
-                        <td>Documento</td><td>Nombre</td><td>Apellido</td><td>Apellido2</td><td>Telefono</td><td>Usuario</td>
+                    <td><b><center>Documento</center></b></td><td><b><center>Nombre</center></b></td><td><b><center>Apellido</center></b></td><td><b><center>Apellido2</center></b></td><td><b><center>Telefono</center></b></td><td><b><center>Usuario</center></b></td>
                     </tr>
                     <tr>
-                        <td></td>
+                        <td>".$consulta['id']."</td>
+                        <td>".$consulta['nombre']."</td>
+                        <td>".$consulta['apellido']."</td>
+                        <td>".$consulta['apellido2']."</td>
+                        <td>".$consulta['telefono']."</td>
+                        <td>".$consulta['user']."</td>
                     </tr>
                     </table>
                     ";
