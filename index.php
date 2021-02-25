@@ -77,6 +77,7 @@
         
         <?php 
             if (isset($_POST['btnbuscar'])) {
+                $_id = $_POST['id'];
                 include("./clases/conexion-open.php");
                 $resultados = mysqli_query($conexion, ("SELECT * FROM $tbempleados WHERE id=$_id"));
                 while ($consulta = mysqli_fetch_array($resultados)) {
@@ -95,6 +96,8 @@
                     </tr>
                     </table>
                     ";
+                    echo "<br>";
+                    echo "Segunda forma <br>";
                     echo $consulta['nombre'];
                 }
                 include("./clases/conexion-close.php");
